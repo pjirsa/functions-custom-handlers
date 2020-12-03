@@ -12,9 +12,9 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 # [Optional] Uncomment this section to install additional OS packages.
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 RUN sudo dpkg -i packages-microsoft-prod.deb
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+&& sudo apt-get -y install dotnet-sdk-5.0
 
-#    && su vscode dpkg -i packages-microsoft-prod.deb
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
 # [Optional] Uncomment the next line to use go get to install anything else you need
