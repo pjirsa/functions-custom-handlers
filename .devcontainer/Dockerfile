@@ -10,10 +10,10 @@ ARG NODE_VERSION="lts/*"
 RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
 # [Optional] Uncomment this section to install additional OS packages.
+RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+RUN sudo dpkg -i packages-microsoft-prod.deb
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive
 
-RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-RUN su vscode dpkg -i packages-microsoft-prod.deb
 #    && su vscode dpkg -i packages-microsoft-prod.deb
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
