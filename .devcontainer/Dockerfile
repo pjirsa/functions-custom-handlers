@@ -13,7 +13,8 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 RUN sudo dpkg -i packages-microsoft-prod.deb
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-&& sudo apt-get -y install dotnet-sdk-5.0
+&& sudo apt-get -y install dotnet-sdk-5.0 \
+&& sudo apt-get -y install azure-functions-core-tools-3
 
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
