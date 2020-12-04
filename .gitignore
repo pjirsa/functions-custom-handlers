@@ -350,3 +350,5 @@ MigrationBackup/
 .ionide/
 /go/*.exe
 /Java/com.java/target/*
+
+local.settings.json
